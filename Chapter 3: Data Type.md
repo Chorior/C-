@@ -22,4 +22,4 @@
 9. 强制转换
     * (typeName)value; // C style
     * typeName (value); //C++ style
-    * static_cast<typeName\>(value)比传统强制类型转换更为严格;     
+    * static_cast\<typeName>(value)比传统强制类型转换更为严格;     
