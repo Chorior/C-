@@ -24,6 +24,7 @@
     * 头文件: `<cstring>`或`<string.h>`;
     * 使用string比使用数组更方便也更安全;
     * 获取string长度: `int length = str.size()`;
+    * 可以使用下标获取对应位置上的字符;
     * 使用printf()输出string时: `printf("%s\n",str.c_str())`,将string转换为数组;
 7. 可以将结构赋给另一个结构;
 8. 共用体能够存储不同的数据类型,但只能同时存储其中的一种类型;
