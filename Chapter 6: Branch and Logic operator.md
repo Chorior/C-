@@ -2,8 +2,10 @@
 ---
 1. 判断相等条件时,将常量写在左边用以捕获将相等运算符==写为赋值运算符=的错误;
 2. and,or,not是C++保留字,它们是逻辑运算符&&,||,!的另一种表达式;在C中需要包含头文件`<ios646.h>`，但C++中不需要;
-3. 写文件
-<pre>
+3. 文件的读写
+```
+// write file
+
     #include <iostream>
     #include <fstream>
     int main()
@@ -17,9 +19,11 @@
         
         return 0;
     }
-</pre>
-4. 读文件
-<pre>
+```
+    
+```
+//read file
+
     #include <iostream>
     #include <fstream>
     #include <cstdlib>
@@ -47,4 +51,4 @@
         
         return 0;
     }
-</pre>
+```
