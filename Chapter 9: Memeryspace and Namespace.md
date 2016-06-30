@@ -1,6 +1,7 @@
 #Chapter 9: Memeryspace and Namespace
 ---
 :bowtie:
+---
 1. 良好的程序包含三个部分
     * 头文件: 包含结构声明和使用这些结构的函数的原型;
     * 源文件: 包含与结构有关的函数的代码;
@@ -24,7 +25,7 @@
 8. 使用new分配空间并初始化
 ```C++
     int *pi = new int (6); // *pi set to 6
-    double *pd = new double (99.99);
+    double *pd = new double (99.99); // *pd set to 99.99
 ```
 9. 名称空间是开放的,即可以把名称加入到已有的名称空间中
 ```C++
