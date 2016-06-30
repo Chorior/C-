@@ -1,6 +1,7 @@
 #Chapter 8: Function
 ---
 :smile:
+---
 1. 如果一个函数很短,可以将其设为内联函数
 ```C++
 inline double square(double x)
