@@ -68,7 +68,7 @@
 ```
     * 有两种方法可以实现想要的效果
         * 使用枚举为整型常量提供作用域为整个类的符号名称
-        ```C++
+```C++
         class Test
         {
         private: 
@@ -76,9 +76,9 @@
             double costs[Mouths];
             ...
         }  
-        ```
+```
         * 使用static定义的常量将与其它静态变量存储在一起,而不是存储在对象中
-        ```C++
+```C++
         class Test
         {
         private: 
@@ -86,7 +86,7 @@
             double costs[Mouths];
             ...
         }  
-        ```
+```
 20. 声明作用域为类的枚举量
     ```C++
     enum class egg {Small,Medium,Large,Jumbo};
