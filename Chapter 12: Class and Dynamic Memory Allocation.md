@@ -49,7 +49,7 @@
         }
     ``` 
 * 所有构造函数都应该与析构函数兼容;
-* `str = new char[1];`与`str = new char;`分配的内存量相同,但前者使用`delete [] str;`释放,后者使用`delete str`释放;
+* `str = new char[1];`与`str = new char;`分配的内存量相同,但前者使用`delete [] str;`释放,后者使用`delete str;`释放;
 * C使用NULL宏表示空指针,C++11使用nullptr表示空指针,建议使用nullptr;
 * 静态成员函数
     * 不能通过对象调用静态成员函数;
