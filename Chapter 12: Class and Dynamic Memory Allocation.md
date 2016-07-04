@@ -84,11 +84,11 @@
     double talk(2.72828);
     ```
 * 在C++11中,非静态const成员可以使用类内初始化,这与使用成员初始化列表等价,但实际初始化列表会覆盖类内初始化
-    ```C++
-    class Classy
-    {
-        int mem1 = 10;
-        const int mem2 = 20;
-        ...
-    }
-    ```                    
+```C++
+   class Classy
+   {
+     int mem1 = 10;
+     const int mem2 = 20;
+     ...
+   }
+```                    
