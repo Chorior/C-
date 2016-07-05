@@ -32,7 +32,7 @@
     * 私有继承;
 * 基类与派生类方法
     * 如果方法没有使用关键字`virtual`,程序将根据引用类型或指针类型选择方法
-    ```Ｃ++
+    ```C++
         // behavior with non-virtual ViewAcct()
         
         Brass dom("Dominic Banker",11224,4183.45);
