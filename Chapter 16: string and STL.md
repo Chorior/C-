@@ -174,8 +174,153 @@
         copy(str_test,str_test + 4, back_iter);
         //copy(str_test,str_test + 4, insert_iter);
         ```   
+    * 基本容器特征
+        * `a.begin()`: 返回指向容器第一个元素的迭代器;
+        * `a.end()`: 返回超尾值迭代器;
+        * `a.size()`: 返回元素个数,等价于`a.end() - a.begin()`;
+        * `a.swap(b)`: 交换a,b的内容;        
     * 序列;
-    * 关联容器;
+        * 序列中的元素具有确定的顺序;
+        * 序列类型
+            * deque
+                * `<deque>`;
+                * 如果多数操作发生在序列的起始和结尾处,使用deque最佳;
+            * forward_list;
+                * 单链表;
+                * 不可反转容器;
+            * list;
+                * `<list>`;
+                * 双向链表;
+                * 不支持随机访问和数组表示;
+                * 强调元素的快速插入和删除;
+                * list成员函数
+                    * `void merge(list<T,Alloc> &x)`: 将链表x与调用链表合并,**两个链表必须已经排序**,合并后的经过排序的链表保存在调用链表中,x为空;
+                    * `void remove(const T &val)`: 从链表中删除val的所有实例;
+                    * `void sort()`: 使用<运算符对链表进行排序,N个元素的复杂度为NlogN;
+                    * `void splice(iterator pos, list<T, Alloc> x)`: 将链表x的内容插入到pos的前面,x将为空;
+                    * `void unique()`: 将连续的相同元素压缩为单个元素;
+            * queue;
+                * `<queue>`;
+                * 不允许随机访问队列元素;
+                * 不允许遍历;
+                * 函数
+                    * `bool empty() const`: 如果队列为空,返回true,否则返回false;
+                    * `size_type size() const`: 返回队列中元素数目;
+                    * `T& front()`: 返回指向队首元素的引用;
+                    * `T& back()`: 返回指向对尾元素的引用;
+                    * `void push(const T& x)`: 在队尾插入x;
+                    * `void pop()`: 删除队首元素;
+            * priority_queue;
+                * `<queue>`;
+                * 支持的操作与queue一样;
+                * 最大的元素被移到队首;
+                * 构造函数
+                ```C++
+                priority_queue<int> test1;
+                priority_queue<int> test2(greater<int>);
+                ```
+                * `greater<>()`是一个预定义的函数对象;
+            * stack;
+                * `<stack>`;
+                * 不允许随机访问;
+                * 不允许遍历;
+                * 函数
+                    * `bool empty() const`: 如果栈为空,返回true,否则返回false;
+                    * `size_type size() const`: 返回栈中元素数目;
+                    * `T& top()`: 返回指向栈顶元素的引用;
+                    * `void push(const T& x)`: 在栈顶部插入x；
+                    * `void pop()`: 删除栈顶元素;
+            * vector
+                * `<vector>`;
+                * 可反转容器;
+                * 强调元素的快速访问;
+        * 序列函数(X表示序列类型)
+            * `X a(n,t)`: 声明一个名为a的由n个t值组成的序列;
+            * `X a(i,j)`: 声明一个名为a的序列,并将其初始化为区间[i,j)的内容;
+            * `a.insert(p,t)`: 将t插入到p的前面;
+            * `a.insert(p,n,t)`: 将n个t插入到p的前面;
+            * `a.insert(p,i,j)`: 将区间[i,j)中的元素插入到p的前面;
+            * `a.erase(p)`: 删除p指向的元素;
+            * `a.erase(p,q)`: 删除区间[p,q)中的元素;
+            * `a.clear()`: 等价于`erase(begin(), end())`;
+            * `a.front()`: 等价于`*a.begin()`,可用于vector,list,deque;
+            * `a.back()`: 等价于`*--a.end()`,可用于vetor,list,deque;
+            * `a.push_front(t)`: 等价于`a.insert(a.begin(),t)`,可用于list,deque;
+            * `a.push_back(t)`: 等价于`a.insert(a,end(),t)`,可用于vector,list,deque;
+            * `a.pop_front()`: 等价于`a.erase(a.begin())`,可用于list,deque;
+            * `a.pop_back()`: 等价于`a.erase(--a.end())`,可用于vector,list,deque;
+            * `a[n]`: 等价于`*(a.begin() + n)`,可用于vector,deque;
+            * `a.at(n)`: 等价于`*(a.begin() + n)`,可用于vector,deque;
+        * a[n] 和 a.at(n)都返回一个指向容器中第n个元素的引用,a.at(n)会执行边界检查,,但a[n]不会;                   
+    * 关联容器
+        * 关联容器将值与键关联在一起,并使用键来查找值;
+        * 优点在于提供了对元素的快速访问;
+        * 关联容器不能指定插入的位置;
+        * 四种关联容器
+            * set
+                * `<set>`;
+                * 值类型与键相同,键是唯一的;                
+                * 集合中不会有多个相同的键;
+                * 可反转;
+                * 集合被排序;
+                * 两个有用的方法
+                    * lower_bound(): 将键作为参数并返回一个指向集合中第一个不小于键参数的成员的迭代器;
+                    * upper_bound(): 将键作为参数并返回一个指向集合中第一个大于键参数的成员的迭代器;                        
+            * multiset
+                * `<set>`;
+                * 类似于set;
+                * 可能有多个值的键相同;
+            * map
+                * `<map>`;
+                * 值与键的类型不同,键是唯一的,每个键只对应一个值;
+            * multimap
+                * `<map>`;
+                * 类似于map；
+                * 一个键可以与多个值相关联;
+                * 被排序;
+                * 构造函数
+                    * `multimap<int,string> codes;`: 键类型为int,值类型为string;
+                * STL使用模板类pair<class T,class U>将键和值存储到一个对象中,前面声明的codes对象的值类型为`pair<const int, string>`
+                ```C++
+                pair<const int,string> item(213,"Los Angeles");
+                codes.insert(item);
+                ```
+                * 对于pair对象,使用first和second成员来访问其两个部分;
+                * 成员函数
+                    * `count()`: 接受键作为参数,返回具有该键的元素数;
+                    * `lower_bound()`;
+                    * `upper_bound()`;
+                    * `equal_range()`: 用键作为参数,返回两个迭代器,并将它们封装在一个pair对象中,这里pair的两个模板参数都是迭代器,它们表示的区间与该键匹配
+                    ```C++
+                    pair<multimap<KeyType,string>::iterator, multimap<KeyType,string>::iterator> range = codes.equal_range(718);
+                    cout < "Cities with area code 718:\n";
+                    std::multimap<KeyType,string>::iterator it;
+                    for(it = range.first; it != range.second; ++ it)
+                        cout << (*it).second << endl;
+                    ```    
+        * 四种无序关联容器
+            * unordered_set;
+            * unordered_multiset;
+            * unordered_map;
+            * unordered_multimap;                                                         
+        * 通用函数
+            * set_union()
+                * 并集;
+                * 五个迭代器参数;
+                * 前两个参数定义第一个集合的区间;
+                * 第三个和第四个参数定义第二个集合区间;
+                * 最后一个参数指出将结果集合复制到什么位置;  
+                * 示例
+                ```C++
+                set_union(A.begin(),A.end(),B.begin(),B.end(),insert_iterator<set<string> >(C,C.begin()));
+                ```
+            * set_intersection()
+                * 查找交集;
+                * 接口与set_union()相同;
+            * set_difference()
+                * 获得两个集合的差;
+                * 接口与set_union()相同;                
+                                             
                                      
         
                                          
