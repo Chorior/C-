@@ -292,7 +292,9 @@
                     * `upper_bound()`;
                     * `equal_range()`: 用键作为参数,返回两个迭代器,并将它们封装在一个pair对象中,这里pair的两个模板参数都是迭代器,它们表示的区间与该键匹配
                     ```C++
-                    pair<multimap<KeyType,string>::iterator, multimap<KeyType,string>::iterator> range = codes.equal_range(718);
+                    pair<multimap<KeyType,string>::iterator, 
+                     multimap<KeyType,string>::iterator> range = 
+                        codes.equal_range(718);
                     cout < "Cities with area code 718:\n";
                     std::multimap<KeyType,string>::iterator it;
                     for(it = range.first; it != range.second; ++ it)
@@ -312,7 +314,8 @@
                 * 最后一个参数指出将结果集合复制到什么位置;  
                 * 示例
                 ```C++
-                set_union(A.begin(),A.end(),B.begin(),B.end(),insert_iterator<set<string> >(C,C.begin()));
+                set_union(A.begin(),A.end(),B.begin(),B.end(),
+                  insert_iterator<set<string> >(C,C.begin()));
                 ```
             * set_intersection()
                 * 查找交集;
