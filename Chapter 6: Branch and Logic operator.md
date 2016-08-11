@@ -12,7 +12,7 @@
     {
         using namespace std;
         
-        fstream outFile;    
+        ofstream outFile;    
         outFile.open("test.txt"); //if test.txt exist,clear;else create a new text named test.txt
         outFIle<<"This is just a test!!"<<endl;
         outFile.close();
